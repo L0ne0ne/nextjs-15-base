@@ -1,0 +1,6 @@
+{
+    "postbuild": "node copyFiles.js",
+    "port": "cd .next/standalone && set PORT=${npm_config_port} && node server.js",
+    "server": "cd .next/standalone && node server.js",
+    "all": "npm i && next build && node copyFiles.js && cd .next/standalone && set PORT=8080 && node server.js"
+}
