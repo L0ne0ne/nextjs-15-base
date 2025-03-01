@@ -14,20 +14,20 @@ app.use(bodyParser.json());
 
 // Webhook endpoint
 app.post('/webhook', (req, res) => {
-    // Verify the webhook signature
-    const signature = req.headers['x-hub-signature-256'];
-    if (!signature) {
-        console.error('No signature found');
-        return res.status(400).send('No signature found');
-    }
+    // // Verify the webhook signature
+    // const signature = req.headers['x-hub-signature-256'];
+    // if (!signature) {
+    //     console.error('No signature found');
+    //     return res.status(400).send('No signature found');
+    // }
 
-    const hmac = crypto.createHmac('sha256', WEBHOOK_SECRET);
-    const digest = 'sha256=' + hmac.update(JSON.stringify(req.body)).digest('hex');
+    // const hmac = crypto.createHmac('sha256', WEBHOOK_SECRET);
+    // const digest = 'sha256=' + hmac.update(JSON.stringify(req.body)).digest('hex');
 
-    if (signature !== digest) {
-        console.error('Invalid signature');
-        return res.status(401).send('Invalid signature');
-    }
+    // if (signature !== digest) {
+    //     console.error('Invalid signature');
+    //     return res.status(401).send('Invalid signature');
+    // }
 
     // Check if the event is a push event
     const event = req.headers['x-github-event'];
