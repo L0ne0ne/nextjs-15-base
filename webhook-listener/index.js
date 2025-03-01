@@ -37,7 +37,7 @@ app.post('/webhook', (req, res) => {
         console.log('Push event received');
 
         // Run your custom commands here
-        exec('cd .. && git pull && npm install && npm run all', (err, stdout, stderr) => {
+        exec('cd .. && git pull && npm run all', (err, stdout, stderr) => {
             if (err) {
                 console.error(`Error: ${err.message}`);
                 return res.status(500).send('Error updating repository');
