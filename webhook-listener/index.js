@@ -32,6 +32,7 @@ app.post('/webhook', (req, res) => {
 
     // Check if the event is a push event
     const event = req.headers['x-github-event'];
+    console.log(event);
     if (event === 'push') {
         console.log('Push event received');
 
