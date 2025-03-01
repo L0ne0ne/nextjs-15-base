@@ -11,6 +11,7 @@
         "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
         "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
         "webhook": "cd webhook-listener && node index.js",
+        "all": "next build && node copyFiles.js && cd .next/standalone && set PORT=8080 && node server.js",
         "build": "next build"
     },
     "dependencies": {
