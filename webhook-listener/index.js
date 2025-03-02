@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { execSync } = require('child_process');
 const fs = require('fs');
-const chalk = require('chalk').default;
+const chalk = (await import('chalk')).default;
 
 const app = express();
 const PORT = 5000;
