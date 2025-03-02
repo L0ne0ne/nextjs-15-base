@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const app = express();
 const PORT = 5000;
-const APP_DIR = '..'; // Path to your Next.js project
+const APP_DIR = '../nextjs-15-base'; // Correct path to your Next.js project
 const LOCK_FILE = `${APP_DIR}/.initialized`; // Used to track first-time setup
 const NEXT_APP_NAME = 'nextjs-base'; // PM2 process name
 
@@ -23,12 +23,12 @@ const NEXT_APP_NAME = 'nextjs-base'; // PM2 process name
                 stdio: 'inherit'
             });
 
-            // fs.writeFileSync(LOCK_FILE, "initialized"); // Create lock file
+            fs.writeFileSync(LOCK_FILE, 'initialized'); // Create lock file
 
             console.log(chalk.green.bold('\n✅ Setup complete! Starting Next.js server...'));
 
             // Start Next.js app with PM2
-            execSync(` pm2 start "../ecosystem.config.js" --name ${NEXT_APP_NAME}`, {
+            execSync(`pm2 start "${APP_DIR}/ecosystem.config.js" --name ${NEXT_APP_NAME}`, {
                 stdio: 'inherit'
             });
         } catch (error) {
